@@ -1,1 +1,4 @@
-<p>user-list works!</p>
+<p>User List</p>
+<p *ngFor="let user of users; let i = index">
+  {{i}} {{ user.name }} | {{ user.email }} | {{ user.tech }}
+</p>

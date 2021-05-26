@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  fetchUsers() {
+  getUsers() {
     return this.http.get<User[]>("https://my-json-server.typicode.com/pkErbynn/user-service-mock/users");
   }
 }
