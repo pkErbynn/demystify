@@ -1,6 +1,5 @@
-// property
+// state change
 // methods that modifies the property
-// state change pattern
 // in reality, might save to a db afterwards
 
 export class VoteComponent {
