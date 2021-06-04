@@ -7,7 +7,7 @@ import { User } from '../interfaces/user';
 
 describe('UserService', () => {
   let mockHttp: IMocked<HttpClient>;
-  const mockUsers = [
+  const mockUsers: User[] = [
     {id: 1, name: 'ike', email: 'ike@tt.io', tech: '.NET', dance: 'Gwara gwara'},
     {id: 2, name: 'dawud', email: 'dawud@tt.io', tech: 'Java', dance: 'Zanku'},
     {id: 3, name: 'erb', email: 'erb@tt.io', tech: 'Angular', dance: 'Shaku shaku'},

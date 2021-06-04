@@ -79,5 +79,13 @@ describe('UserListComponent', () => { // description for a group of related test
   });
 });
 
+
 // The DebugElement provides crucial insights into the component's DOM representation.
 // you can walk (and query) the fixture's entire element and component subtrees.
+
+// Key takeaways for testing templates
+// debugElement.queryAll(By.css(‘cssClass’))
+// querySelector
+// debugElement.nativeElement.outerHTML
+// debugElement.nativeElement.textContent
+
