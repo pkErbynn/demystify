@@ -18,7 +18,7 @@ fdescribe('UserService: MockingBird', () => {
 
   beforeEach(() => {
     mockHttp = Mock.create<HttpClient>().setup(
-      setupFunction('get', () => of(mockUsers) as any)  // setupProperty('get', of(mockUsers) as any)
+      setupFunction('get', () => of(mockUsers) as any)  // setupProperty('get', of(mockUsers) as any), for property
     );
 
     userService = new UserService(mockHttp.mock);

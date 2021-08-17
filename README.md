@@ -1,16 +1,79 @@
 # Demystify
 
+Demystify is a web-based application to demonstrate and demystify Angular unit testing.
+
+**Screenshot:**
+
+<img src="src/assets/images/demystify.PNG">
+
+**File structure:**
+
+demystify
+
+eerer
+
+<pre>
+demystify
+    |____ src/
+    |       |___ app/
+    |       |      |___components/
+    |       |      |        |___ user-list/
+    |       |      |                 |___ user-list.component.css
+    |       |      |                 |___ user-list.component.html
+    |       |      |                 |___ user-list.component.spec.ts
+    |       |      |                 |___ user-list.component.ts
+    |       |      |___interfaces/
+    |       |      |        |___ user.ts
+    |       |      |___services/
+    |       |               |___ user.service.mocking-bird.spec.ts
+    |       |               |___ user.service.spec.ts
+    |       |               |___ user.service.ts
+    |       |___ app-routing.module.ts
+    |       |___ app.component.css
+    |       |___ app.component.html
+    |       |___ app.component.spec.ts
+    |       |___ app.component.ts
+    |       |___ app.module.ts
+    |       |___ assets/
+    |              |___ images/
+    |___ package.json
+    |___ README.md
+</pre>
+
+<img src="src/assets/images/file-structure.PNG">
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 
-## Development server
+## Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Karma
+* Jasmine framework
+* ts-mocking-bird library
 
+## Usage
 
-## Build
+1. Clone this repository
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```shell
+$ git clone https://github.com/pkErbynn/demystify.git
+```
+
+2. Navigate to the root directory
+
+```shell
+$ cd /demystify
+```
+
+3. Run the following command to serve the application locally.
+
+```shell
+ $ ng serve --open
+```
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+**Service testing result (from [Jasmine](https://jasmine.github.io/pages/docs_home.html) & [ts-mocking-bird](http://opensource.morganstanley.com/ts-mocking-bird/)):**
+
+<img src="src/assets/images/service testing result.PNG">
