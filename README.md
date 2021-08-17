@@ -40,8 +40,6 @@ demystify
     |___ README.md
 </pre>
 
-<img src="src/assets/images/file-structure.PNG">
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 
 ## Technologies
