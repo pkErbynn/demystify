@@ -8,10 +8,6 @@ Demystify is a web-based application to demonstrate and demystify Angular unit t
 
 **File structure:**
 
-demystify
-
-eerer
-
 <pre>
 demystify
     |____ src/
@@ -38,6 +34,7 @@ demystify
     |              |___ images/
     |___ package.json
     |___ README.md
+    |___ ...
 </pre>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
