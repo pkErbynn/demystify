@@ -1,15 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 import { UserListComponent } from './user-list.component';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/interfaces/user';
 
+// TODO:
+// consolidate beforeEach()
+// find getUsersSpy type
+
 fdescribe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
   let userService: UserService;
+  let getUsersSpy: any;
 
   const mockUsers: User[] = [
     {name: 'user1', id: 1, email: 'user1@gmail.com', tech: 'angular', dance: 'dance1' },
@@ -18,7 +23,7 @@ fdescribe('UserListComponent', () => {
 
   beforeEach(async () => {
     const userServiceSpy = jasmine.createSpyObj('UserService', ['getUsers']);
-    userServiceSpy.getUsers.and.returnValue(of(mockUsers));
+    getUsersSpy = userServiceSpy.getUsers.and.returnValue(of(mockUsers));
 
     await TestBed.configureTestingModule({
       declarations: [ UserListComponent ],
@@ -42,10 +47,23 @@ fdescribe('UserListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should fetch users on ngInit', () => {
+  it('should fetch users when onInit() is called', () => {
     component.ngOnInit(); // or fixture.detectChanges();
+
+    expect(component.users.length).toBe(2);
     expect(component.users).toEqual(mockUsers);
     expect(component.errorMessage).toBeUndefined();
+  });
+
+  it('should receive error when get users service fails onInit()', () => {
+    const expectedError = 'user service error occurred';
+    getUsersSpy.and.returnValue(throwError(expectedError));
+
+    component.ngOnInit(); // or fixture.detectChanges();
+
+    expect(component.users.length).toBeLessThan(1);
+    expect(component.users).not.toEqual(mockUsers);
+    expect(component.errorMessage).toBe(expectedError);
   });
 
   // inner spy...doesn't require "useValue: userServiceSpy" in config
