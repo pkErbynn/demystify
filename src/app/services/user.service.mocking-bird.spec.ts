@@ -5,7 +5,7 @@ import { of, throwError } from 'rxjs';
 import { UserService } from './user.service';
 import { User } from '../interfaces/user';
 
-fdescribe('UserService: MockingBird', () => {
+describe('UserService: MockingBird', () => {
   let mockHttp: IMocked<HttpClient>;
   let userService: UserService;
 

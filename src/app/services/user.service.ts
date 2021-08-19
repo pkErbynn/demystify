@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import { User } from '../interfaces/user';
 
@@ -15,9 +15,6 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url).pipe(  // improved with catchError block
-      // map((users: User[]) => {
-      //   return users;
-      // }),
       catchError((err: HttpErrorResponse) => {
         return throwError(err.message);
       })

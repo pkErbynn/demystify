@@ -6,7 +6,7 @@ import { of, throwError } from 'rxjs';
 import { UserService } from './user.service';
 import { User } from '../interfaces/user';
 
-fdescribe('UserService', () => {
+describe('UserService', () => {
   let userService: UserService;
   let httpClient: HttpClient;
 

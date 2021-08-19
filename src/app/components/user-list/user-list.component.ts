@@ -11,14 +11,19 @@ import { User } from 'src/app/interfaces/user';
 export class UserListComponent implements OnInit {
   title = 'User List';
   users: User[] = [];
+  errorMessage: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(users => {
-      console.log(users);
-      this.users = users;
-    });
+    this.userService.getUsers().subscribe(
+      (users: User[]) => {
+        this.users = users;
+      },
+      (err: string) => {
+        this.errorMessage = err;
+      }
+    );
   }
 
 }
