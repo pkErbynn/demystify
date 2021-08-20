@@ -1,11 +1,11 @@
-<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+<div *ngIf="errorMessage" class="alert">
   Error occurred: {{ errorMessage }} 
 </div>
 
-<h3 style="text-align: center">{{ title }}</h3>
+<h3>{{ title }}</h3>
 <hr><br>
 
-<table id="usersTb" >
+<table id="usersTb">
   <tr>
     <th>Name</th>
     <th>Email</th>
@@ -13,7 +13,7 @@
     <th>Dance</th>
   </tr>
   <tr *ngIf="users.length === 0; else availableUsers" id="noUsersAvailable">
-      <td colspan="4"> No users available </td>
+      <td colspan="4" class="no"> No users available </td>
   </tr>
   <ng-template #availableUsers>
     <tr *ngFor="let user of users; let i = index">
