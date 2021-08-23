@@ -1,18 +1,29 @@
-<h3 style="text-align: center">{{ title }}</h3>
+<div *ngIf="errorMessage" class="alert">
+  Error occurred: {{ errorMessage }} 
+</div>
+
+<h3>{{ title }}</h3>
 <hr><br>
 
-<table id="usersTb" >
+<table id="usersTb">
   <tr>
     <th>Name</th>
     <th>Email</th>
     <th>Technology</th>
     <th>Dance</th>
   </tr>
-  <tr *ngFor="let user of users; let i = index">
-    <td>{{ user.name }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.tech }}</td>
-    <td>{{ user.dance }}</td>
+  <tr *ngIf="users.length === 0; else availableUsers" id="noUsersAvailable">
+      <td colspan="4" class="no"> No users available </td>
   </tr>
+  <ng-template #availableUsers>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.tech }}</td>
+      <td>{{ user.dance }}</td>
+    </tr>
+  </ng-template>
 </table>
+
+<!-- // TODO: Add loading -->
 
