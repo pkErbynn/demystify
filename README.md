@@ -67,8 +67,23 @@ $ cd /demystify
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run this command to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+$ ng test
+```
 
-**Service testing result (from [Jasmine](https://jasmine.github.io/pages/docs_home.html) & [ts-mocking-bird](http://opensource.morganstanley.com/ts-mocking-bird/)):**
+**Service testing result (using [Jasmine](https://jasmine.github.io/pages/docs_home.html) & [ts-mocking-bird](http://opensource.morganstanley.com/ts-mocking-bird/)):**
 
 <img src="src/assets/images/service testing result.PNG">
+
+
+**Component testing result (using [Jasmine](https://jasmine.github.io/pages/docs_home.html)):**
+
+<img src="src/assets/images/component template tests.PNG">
+
+
+**All test result (from both service and component):**
+
+<img src="src/assets/images/all service and component test results.PNG">
+
+Thank you :)
