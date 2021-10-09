@@ -31,9 +31,7 @@ describe('UserListComponent', () => {
       imports: [ HttpClientModule ]
     });
 
-    // wrapper for getting an instance of component and template/DOM el via nativeEl/debugEl
-  // manual change detection
-  // injected dependencies accessible
+    // wrapper to get component instance and its template/DOM element via nativeElement/debugElement
     fixture = TestBed.createComponent(UserListComponent);
     component = fixture.componentInstance;
     userService = TestBed.inject(UserService);
@@ -46,8 +44,6 @@ describe('UserListComponent', () => {
   it('should fetch users when onInit() is called', () => {
     component.ngOnInit(); // or fixture.detectChanges();
 
-    // In the Assert phase, we need to verify that the Service methods have been called. Thanks to jasmine.createSpyObj, all methods of fakeCounterService are spies. 
-    // We use expect together with an appropriate matcher like toHaveBeenCalled, toHaveBeenCalledWith, etc.
     expect(userService.getUsers).toHaveBeenCalled();
     expect(component.users.length).toBe(3);
     expect(component.users).toEqual(mockUsers);
@@ -64,6 +60,8 @@ describe('UserListComponent', () => {
     expect(component.users).not.toEqual(mockUsers); // for primitives
     expect(component.errorMessage).toBe(expectedError); // for objects and primitives
   });
+
+  // ======== template testing =========
 
   it(`should render 'User List' title`, () => {
     component.title = 'User List';
@@ -82,7 +80,7 @@ describe('UserListComponent', () => {
 
     const debugElement = fixture.debugElement.query(By.css('.alert'));
     const element: HTMLElement = debugElement.nativeElement;
-    expect(element.innerText).toContain('Error occurred');
+    expect(element.innerText).toContain('Error occurred');  // .toContain() for string
   });
 
   it('should have table with 4 header fields', () => {
@@ -134,6 +132,6 @@ describe('UserListComponent', () => {
 // debugElement.nativeElement.outerHTML
 // debugElement.nativeElement.textContent
 
-// alt test for cas #56
+// alt test for case #56
 // const de: HTMLElement = fixture.debugElement.nativeElement;
 // expect(de.querySelector('h3').textContent).toContain('User');
