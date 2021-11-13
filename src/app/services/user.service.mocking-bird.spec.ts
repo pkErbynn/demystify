@@ -29,8 +29,10 @@ describe('UserService: MockingBird', () => {
   });
 
   it('should get users', () => {
+    const expectedUrl = 'https://my-json-server.typicode.com/pkErbynn/user-service-mock/users';
+
     userService.getUsers().subscribe(users => {
-      expect(mockHttp.withFunction('get')).wasCalledOnce();
+      expect(mockHttp.withFunction('get').withParameters(expectedUrl)).wasCalledOnce();
       expect(users).not.toBe(null);
       expect(users.length).toBe(4);
       expect(users).toEqual(mockUsers);
